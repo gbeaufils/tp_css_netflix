@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="catalogue-container">
+        <div class="navbar navbar-grid"><span class="title">Cesiflix</span></div>
+        {% for i in 0..12 %}
+            <div class="thumbnail"> {{ i }}</div>
+        {% endfor %}
+        <div class="footer">C'est le footer</div>
+
+    </div>
+{% endblock %}

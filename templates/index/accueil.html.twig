@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+        <div class="main-container">
+            <div class="navbar"><span class="title">Cesiflix</span></div>
+            <div class="container" style="background-image: url({{ asset('build/robot.jpg') }})">
+                <div class="synopsis">
+                    <h1>Mr Robot</h1>
+                    <h5><b>Saison 4 disponible maintenant !</b></h5>
+                    <p> Elliot est un jeune programmeur anti-social qui souffre d'un trouble du comportement qui le pousse à croire
+                        qu'il ne peut rencontrer des gens qu'en les hackant. Il travaille pour une firme spécialisée
+                        dans la cyber-sécurité mais un homme connu sous le nom de Mr Robot l'approche un jour pour
+                        faire tomber une compagnie surpuissante qui fait partie de celles qu'il doit justement protéger..
+                    </p>
+                </div>
+                <div class="goToMovies"><a href="/catalogue">>Accéder au catalogue !</a> </div>
+            </div>
+        </div>
+{% endblock %}
