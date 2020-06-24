@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cours  CSS{% endblock %}
+
+{% block body %}
+
+    <div class="grid-container">
+        <div class="menu-icon">
+            <i class="fas fa-bars header__menu"></i>
+        </div>
+
+        <header class="header">
+
+            <div class="header__search input-group  ">
+                <input type="text" placeholder="Recherche..." class="form-control">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button"><img src="{{ asset('build/icon_search.png') }}"></button>
+                </div>
+            </div>
+            <div class="header__avatar"><img src="{{ asset('build/autruche.jpg') }}" alt="Autruche"></div>
+        </header>
+
+        <aside class="sidenav">
+            <div class="sidenav__close-icon">
+                <i class="fas fa-times sidenav__brand-close"></i>
+            </div>
+            <div class="logo-container">
+                <img src="{{ asset('build/icon-video-camera.png') }}">
+            </div>
+            <ul class="sidenav__list">
+                <li class="sidenav__list-item">Nouveautés</li>
+                <li class="sidenav__list-item">Films</li>
+                <li class="sidenav__list-item">Séries</li>
+                <li class="sidenav__list-item">Genre</li>
+                <li class="sidenav__list-item">Acteurs</li>
+            </ul>
+        </aside>
+
+        <main class="main">
+            <div class="main-header">
+                <div class="main-header__heading">Derniers programmes visionnés</div>
+
+                <div class="main-overview">
+                    <div class="overviewcard" role="button">
+                        <div class="overviewcard__icon"><img src="{{ asset('build/icon_folder.png') }}"></div>
+                        <div class="overviewcard__info">Documents</div>
+                    </div>
+                    <div class="overviewcard">
+                        <div class="overviewcard__icon"><img src="{{ asset('build/icon_folder.png') }}"></div>
+                        <div class="overviewcard__info">Documents</div>
+                    </div>
+                    <div class="overviewcard">
+                        <div class="overviewcard__icon"><img src="{{ asset('build/icon_folder.png') }}"></div>
+                        <div class="overviewcard__info">Documents</div>
+                    </div>
+                    <div class="overviewcard">
+                        <div class="overviewcard__icon"><img src="{{ asset('build/icon_folder.png') }}"></div>
+                        <div class="overviewcard__info">Documents</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="main-cards">
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+                <div class="card">Test</div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__copyright">&copy; 2020 Geoffroy</div>
+            <div class="footer__signature"></div>
+        </footer>
+    </div>
+{% endblock %}
