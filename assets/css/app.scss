@@ -40,14 +40,14 @@ html, body {
 
 }
 
-
 .container {
   display: flex;
   align-content: center;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  /*background: url("assets/images/robot.jpg") no-repeat;*/
+  z-index: 1;
+
 }
 
 .synopsis {
@@ -68,7 +68,6 @@ html, body {
 
 .goToMovies {
   display: flex;
-  justify-content: center;
   justify-content: center;
   align-items: center;
   border: solid 2px;
@@ -113,6 +112,14 @@ html, body {
     }
   }
 
+  .img {
+    position: absolute;
+    width: 100vw;
+    max-height: 90vh;
+    object-fit: cover;
+    z-index: 0;
+  }
+
 }
 
 @media screen and (min-width: $max-width-device + 1) {
@@ -129,38 +136,132 @@ html, body {
       width: 40%;
     }
   }
+  .img {
+    position: absolute;
+    top: 25%;
+    left: 40%;
+  }
+
+
 }
 
 /*********END ACCUEIL**********/
 /*********CATALOGUE**********/
 .catalogue-container {
   display: grid;
-  grid-gap: 4px;
+  grid-gap: 10px;
+  height: 140vh;
 }
 
 @media screen and (max-width: $max-width-device) {
   .catalogue-container {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 60px repeat(6,1fr) 60px ;
+    grid-template-rows: 60px 30px repeat(6, 1fr) 60px 40px;
     background-color: $colorNetflix;
   }
-
+  .search {
+    grid-row: 2/2;
+    grid-column: span 2;
+    text-align: center;
+  }
   .navbar-grid {
     grid-row: 1/1;
     grid-column: span 2;
   }
   .thumbnail {
+
+    margin: 0 5px 0 5px;
     grid-column: span 1;
+    grid-row: span 2;
     color: black;
+    background-color: $colorNav;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 90%;
+      height: 90%;
+      &:hover, &:focus {
+        width: 100%;
+        height: 100%;
+        transition: 300ms;
+      }
+      &:not(focus) {
+        width: 80%;
+        height: 80%
+      }
+    }
+  }
+  .pagination {
+    grid-row: 9/10;
+    grid-column: span 2;
+
   }
   .footer {
-    grid-row: 12/13;
+    grid-row: 10/11;
     grid-column: span 2;
   }
 }
 
 @media screen and (min-width: $max-width-device + 1) {
+  .catalogue-container {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 60px 30px repeat(4, 1fr) 60px 40px;
+    background-color: $colorNetflix;
+  }
+  .search {
+    grid-row: 2/2;
+    grid-column: 2/9;
+    text-align: center;
 
+  }
+  .navbar-grid {
+    grid-row: 1/1;
+    grid-column: span 9;
+    height: 60px;
+
+  }
+
+  .thumbnail {
+
+    margin: 0 5px 0 5px;
+    grid-column: span 2 /span 2;
+
+  }
+  .pagination {
+    grid-row: 7/8;
+    grid-column: 2/span 6;
+
+  }
+  .footer {
+    grid-row:8/9;
+    grid-column: span 8;
+  }
+
+}
+
+.thumbnail {
+  grid-row: span 2;
+  color: black;
+  background-color: $colorNav;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 90%;
+    height: 90%;
+    &:hover, &:focus {
+      width: 100%;
+      height: 100%;
+      transition: 300ms;
+    }
+    &:not(focus) {
+      width: 80%;
+      height: 80%
+    }
+  }
 }
 
 /*********END CATALOGUE**********/
