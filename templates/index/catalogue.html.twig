@@ -4,19 +4,25 @@
 
 {% block body %}
     <div class="catalogue-container">
-        <div class="navbar navbar-grid"><span class="title">Cesiflix</span></div>
+        <div class="navbar"><span class="title">Cesiflix</span></div>
         <div class="search"><span><input type="text"><input type="button" value="Rechercher"></span></div>
-        <div class="thumbnail"><img class=""  src="{{ asset('build/theartist.jpg') }}">
-        </div>
-            {% for i in 0..4 %}
-            <div class="thumbnail"> zaeeaze
+        <div class="thumbnail-list">
+            <div class="thumbnail"><img class="" src="{{ asset('build/theartist.jpg') }}">
             </div>
-        {% endfor %}
-        <div class="pagination">
-            1 2 3 4 5
-        </div>
+            {% for i in 0..6 %}
+                <div class="thumbnail"> zaeeaze
+                </div>
+            {% endfor %}
 
-        <div class="footer">C'est le footer</div>
+
+        </div>
+        <div class="pagination">
+            {% for i in 0..6 %}
+                <div> {{ i }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="footer">Cesiflix est une propriété de Mehabli Rayane & Beaufils Geoffroy ©</div>
 
     </div>
 {% endblock %}
