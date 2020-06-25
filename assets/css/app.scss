@@ -230,7 +230,7 @@ html, body {
 }
 .pagination {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   background-color: #DB202C;
   max-width: 80%;
@@ -248,6 +248,7 @@ html, body {
   div {
     border:solid 1px;
     border-color: $font-container;
+    margin: 0 10px 0 10px;
   }
 }
 
