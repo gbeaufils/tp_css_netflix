@@ -1,5 +1,5 @@
 /*********ACCUEIL**********/
-$max-width-device: 900px;
+$min-width-desktop: 900px;
 $colorNetflix: #DB202C;
 $colorNav: #030C11;
 $font-container: #091f2b;
@@ -23,15 +23,18 @@ html, body {
 
 }
 
+/*PAGE ACCUEIL*/
+
+
 .navbar {
   width: 100%;
   background-color: $colorNav;
   color: $colorNetflix;
   font-family: netflixFont;
   font-size: 2em;
+  height: 60px;
 
 }
-
 
 .main-container {
   height: 100vh;
@@ -47,6 +50,7 @@ html, body {
   align-items: center;
   justify-content: space-evenly;
   z-index: 1;
+  height: calc(100vh - 60px);
 
 }
 
@@ -58,11 +62,19 @@ html, body {
   h1 {
     font-family: mrRobot;
     color: $colorNetflix;
+    font-size: 2rem;
+
   }
 
   h5 {
     width: fit-content;
     border-bottom: solid 1px;
+    font-size: 1rem;
+
+  }
+
+  p {
+    font-size: 0.8rem;
   }
 }
 
@@ -88,47 +100,25 @@ html, body {
 
 }
 
-@media screen and (max-width: $max-width-device) {
-  .container {
-    height: calc(100vh - 60px);
-  }
-  .navbar {
-    height: 60px;
-  }
-  .title {
-    margin: auto;
-  }
-  .synopsis {
-    h1 {
-      font-size: 2rem;
-    }
-
-    h5 {
-      font-size: 1rem;
-    }
-
-    p {
-      font-size: 0.8rem;
-    }
-  }
-
-  .img {
-    position: absolute;
-    width: 100vw;
-    max-height: 90vh;
-    object-fit: cover;
-    z-index: 0;
-  }
-
+.img {
+  position: absolute;
+  width: 100vw;
+  max-height: 90vh;
+  object-fit: cover;
+  z-index: 0;
 }
 
-@media screen and (min-width: $max-width-device + 1) {
+
+@media screen and (min-width: $min-width-desktop) {
 
   .navbar {
     height: 10vh;
   }
   .container {
     height: 90vh;
+  }
+  .title {
+    margin: auto;
   }
 
   .synopsis {
@@ -142,127 +132,120 @@ html, body {
     left: 40%;
   }
 
-
 }
+
 
 /*********END ACCUEIL**********/
 /*********CATALOGUE**********/
+
+
 .catalogue-container {
-  display: grid;
-  grid-gap: 10px;
-  height: 140vh;
+  background-color: $font-container;
 }
 
-@media screen and (max-width: $max-width-device) {
-  .catalogue-container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 60px 30px repeat(6, 1fr) 60px 40px;
-    background-color: $colorNetflix;
-  }
-  .search {
-    grid-row: 2/2;
-    grid-column: span 2;
-    text-align: center;
-  }
-  .navbar-grid {
-    grid-row: 1/1;
-    grid-column: span 2;
-  }
-  .thumbnail {
-
-    margin: 0 5px 0 5px;
-    grid-column: span 1;
-    grid-row: span 2;
-    color: black;
-    background-color: $colorNav;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 90%;
-      height: 90%;
-      &:hover, &:focus {
-        width: 100%;
-        height: 100%;
-        transition: 300ms;
-      }
-      &:not(focus) {
-        width: 80%;
-        height: 80%
-      }
-    }
-  }
-  .pagination {
-    grid-row: 9/10;
-    grid-column: span 2;
-
-  }
-  .footer {
-    grid-row: 10/11;
-    grid-column: span 2;
-  }
+.navbar {
+  width: 100%;
+  height: 60px;
 }
 
-@media screen and (min-width: $max-width-device + 1) {
-  .catalogue-container {
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 60px 30px repeat(4, 1fr) 60px 40px;
-    background-color: $colorNetflix;
-  }
-  .search {
-    grid-row: 2/2;
-    grid-column: 2/9;
-    text-align: center;
+.search {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
 
-  }
-  .navbar-grid {
-    grid-row: 1/1;
-    grid-column: span 9;
-    height: 60px;
-
-  }
-
-  .thumbnail {
-
-    margin: 0 5px 0 5px;
-    grid-column: span 2 /span 2;
-
-  }
-  .pagination {
-    grid-row: 7/8;
-    grid-column: 2/span 6;
-
-  }
-  .footer {
-    grid-row:8/9;
-    grid-column: span 8;
-  }
-
+.thumbnail-list {
+  display: flex;
+  margin: 0 auto 0 auto;
+  flex-wrap: wrap;
+  width: 90%;
+  flex-grow: 2;
+  justify-content: space-between;
 }
 
 .thumbnail {
-  grid-row: span 2;
-  color: black;
-  background-color: $colorNav;
+  background-color: $colorNetflix;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: calc(90% / 2);
+  height: 200px;
+  margin: 15px 0 15px 0;
 
   img {
-    width: 90%;
-    height: 90%;
+    width: 200px;
+    height: 300px;
+
     &:hover, &:focus {
       width: 100%;
       height: 100%;
       transition: 300ms;
     }
-    &:not(focus) {
+
+    &:not(hover), &:not(focus) {
       width: 80%;
-      height: 80%
+      height: 80%;
+      transition: 300ms;
+
     }
   }
 }
+
+.pagination {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #DB202C;
+  max-width: 80%;
+  margin: 0 auto 10px;
+  font-size: 1.5rem;
+  padding: 10px 0 10px 0;
+}
+
+.footer {
+  background-color: $colorNav;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  height: 60px;
+  font-size: 0.8rem;
+
+}
+
+@media screen and (min-width: $min-width-desktop) {
+
+  .thumbnail-list {
+    width: 80%;
+    flex-grow: 3;
+  }
+
+  .thumbnail {
+
+    width: calc(80% / 3);
+    height: 400px;
+    margin: 50px auto 50px auto;
+
+    img {
+      width: 200px;
+      height: 300px;
+    }
+  }
+
+  .pagination {
+    width: 40%;
+    max-width: 60%;
+    margin: 0 auto 10px;
+    font-size: 1.5rem;
+    padding: 10px 0 10px 0;
+
+  }
+
+  .footer {
+    height: 60px;
+  }
+
+}
+
 
 /*********END CATALOGUE**********/
 
