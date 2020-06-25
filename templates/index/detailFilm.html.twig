@@ -9,7 +9,11 @@
 
         <div class="detail-container">
             <div class="thumbnail-detail">
-                <img class="" src="{{ detailsFilm['Poster'] }}"  alt="{{ detailsFilm["Title"]}}">
+                {% if detailsFilm['Poster'] == "N/A"%}
+                    <img  src="{{ asset("build/nopic.png") }}" alt="{{detailsFilm["Title"]}}">
+                {% else %}
+                    <img src="{{ detailsFilm['Poster'] }}"  alt="{{ detailsFilm["Title"]}}">
+                {% endif %}
             </div>
             <div class="informations">
                 <h2><b>Titre : {{ detailsFilm['Title'] }}</b></h2>
