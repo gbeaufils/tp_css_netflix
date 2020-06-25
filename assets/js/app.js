@@ -12,29 +12,39 @@ import '../css/app.scss';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
-// $(function() {
-//
-// });
+$(function() {
 
-const menuIconEl = $('.menu-icon');
-const sidenavEl = $('.sidenav');
-const sidenavCloseEl = $('.sidenav__close-icon');
 
-// Add and remove provided class names
-function toggleClassName(el, className) {
-    if (el.hasClass(className)) {
-        el.removeClass(className);
-    } else {
-        el.addClass(className);
-    }
-}
 
-// Open the side nav on click
-menuIconEl.on('click', function() {
-    toggleClassName(sidenavEl, 'active');
+$(document).ready(function () {
+    $('.favori_btn').click(function () {
+        var button = $(this);
+
+        $.ajax(button.data('url'), {
+            method: "POST",
+            success: function (response) {
+                if (response.success === true) {
+                    button.toggleClass('btn-secondary').toggleClass('btn-warning');
+                    if (button.hasClass('btn-secondary')) {
+                        button.html('Ajouter aux favoris');
+                    } else {
+                        button.html('Retirer des favoris');
+                    }
+
+
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function () {
+                alert('An error occured. Please try again');
+            },
+
+        });
+    })
+
+
+
 });
 
-// Close the side nav on click
-sidenavCloseEl.on('click', function() {
-    toggleClassName(sidenavEl, 'active');
 });

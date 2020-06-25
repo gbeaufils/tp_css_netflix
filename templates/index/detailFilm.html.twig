@@ -21,7 +21,14 @@
                 {% endif %}
             </div>
             <div class="informations">
-                <h2><b>Titre : {{ detailsFilm['Title'] }}</b></h2>
+
+                <h2><b>Titre : {{ detailsFilm['Title'] }}</b>
+                    <a  class="favori btn {{ (detailsFilm['favori']) ? 'btn-warning' : 'btn-secondary'}} favori_btn"
+                         data-id = "{{ detailsFilm['imdbID'] }}"
+                         data-url="{{ path('editFavori', {'id': detailsFilm['imdbID']}) }}" href="javascript:void(0)">
+                        {{ (detailsFilm['favori']) ? 'Retirer des favoris' : 'Ajouter aux favoris'}}
+                    </a></h2>
+
                 <div>Synopsis : {{ detailsFilm['Plot'] }}</div>
                 <div>Durée : {{ detailsFilm['Runtime'] }}</div>
                 <div>Genre : {{ detailsFilm['Genre'] }}</div>
@@ -30,6 +37,7 @@
                 <div>Année de production : {{ detailsFilm['Year'] }}</div>
                 <div>Origine : {{ detailsFilm['Country'] }}</div>
                 <div>Note : {{ detailsFilm['imdbRating'] }}/10</div>
+
             </div>
         </div>
         <div class="footer">Cesiflix est une propriété de Mehabli Rayane & Beaufils Geoffroy ©</div>

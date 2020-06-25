@@ -4,12 +4,15 @@
 
 {% block body %}
     <div class="catalogue-container">
-        <div class="navbar"><span class="title"><a href="/accueil" >CesiFlix</a></span></div>
-        <div class="search">
-            {{ render(controller(
-                'App\\Controller\\RechercheController::searchBar'
-            )) }}
+        <div class="navbar">
+            <span class="title"><a href="/accueil" >CesiFlix</a></span>
+            <a href="{{ path('favori', { currentPage : 1 }) }}"><img src="{{ asset("build/star-yellow.png") }}" alt="retourner à l'accueil"></a>
         </div>
+{#        <div class="search">#}
+{#            {{ render(controller(#}
+{#                'App\\Controller\\RechercheController::searchBar'#}
+{#            )) }}#}
+{#        </div>#}
         {% if resultRecherche is defined and resultRecherche['response'] == "True" %}
             <div class="thumbnail-list">
                     {% for film in resultRecherche['films'] %}
