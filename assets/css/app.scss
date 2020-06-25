@@ -31,8 +31,10 @@ html, body {
   background-color: $colorNav;
   color: $colorNetflix;
   font-family: netflixFont;
-  font-size: 2em;
+  font-size: 3em;
   height: 60px;
+  display: flex;
+  align-content: center;
 
 }
 
@@ -148,10 +150,35 @@ html, body {
   height: 60px;
 }
 
+.searchBar {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  div {
+    height: 40px;
+  }
+
+  input {
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+    border-top: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    text-indent: 5px;
+  }
+}
+
 .search {
   width: 100%;
   text-align: center;
   margin: 10px 0 10px 0;
+}
+
+.search-no-result {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
 }
 
 .thumbnail-list {
@@ -164,7 +191,7 @@ html, body {
 }
 
 .thumbnail {
-  background-color: $colorNetflix;
+  /*background-color: $colorNetflix;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,7 +217,17 @@ html, body {
     }
   }
 }
+.thumbnail-na {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  div{
+    text-align: center;
+    padding: 0 5px 10px 5px;
+  }
 
+}
 .pagination {
   display: flex;
   justify-content: space-evenly;
@@ -199,7 +236,19 @@ html, body {
   max-width: 80%;
   margin: 0 auto 10px;
   font-size: 1.5rem;
-  padding: 10px 0 10px 0;
+  padding: 8px 0 8px 0;
+  div a{
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+  }
+  div:hover, div:focus, .active {
+    background-color: $font-container;
+  }
+  div {
+    border:solid 1px;
+    border-color: $font-container;
+  }
 }
 
 .footer {

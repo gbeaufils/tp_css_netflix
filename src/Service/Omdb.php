@@ -59,8 +59,18 @@ class Omdb
             {
                 array_push($finalResult['films'], $film);
             }
+
             $finalResult['currentPage'] = $page;
-            $finalResult['nbPages'] = $result["totalResults"] > 10 ? intval($result["totalResults"]/10): 1;
+            $finalResult['titleSearch'] = $title;
+            if($result["totalResults"] > 10) {
+                if(intval($result["totalResults"]/10)>8){
+                    $finalResult['nbPages'] = 8;
+                } else {
+                    $finalResult['nbPages'] = intval($result["totalResults"]/10);
+                }
+            } else {
+                $finalResult['nbPages'] = 1;
+            }
         }
         return $finalResult;
     }

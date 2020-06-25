@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class RechercheController extends AbstractController
 {
     /**
-     * @Route("/recherche", name="recherche")
+     * @Route("/recherche/{titleSearch}/{currentPage}", name="recherche",defaults={"currentPage" = 1, "titleSearch" = ""})
      * @param Request $request
      * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface
@@ -20,18 +20,22 @@ class RechercheController extends AbstractController
      * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
      */
-    public function recherche(Request $request)
+    public function recherche(Request $request, int $currentPage = 1, string $titleSearch = '')
     {
         $omdbApi = new Omdb();
         if (isset($request->request->get('recherche')['RechercheData'])) {
 
             $titre = $request->request->get('recherche')['RechercheData'];
-            $resultRecherche = $omdbApi->getByTitle($titre);
 
-            return $this->render('index/catalogue.html.twig', [
-                'resultRecherche' => $resultRecherche,
-            ]);
+
+        } else {
+           $titre = $titleSearch;
         }
+            $resultRecherche = $omdbApi->getByTitle($titre, $currentPage);
+
+       return $this->render('index/catalogue.html.twig', [
+                    'resultRecherche' => $resultRecherche
+            ]);
     }
 
     /**
