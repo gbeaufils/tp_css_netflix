@@ -6,7 +6,11 @@
     <div class="catalogue-container">
         <div class="navbar">
             <span class="title"><a href="/accueil"> CesiFlix</a></span>
-            <a href="/catalogue"><img src="{{ asset("build/home.png") }}" alt="retourner à l'accueil"></a>
+            <div>
+                <a href="/catalogue"><img src="{{ asset("build/home.png") }}" alt="retourner à l'accueil"></a>
+                <a href="{{ path('favori', { currentPage : 1 }) }}"><img class="icon-nav" src="{{ asset("build/star-yellow.png") }}" alt="go aux favoris"></a>
+            </div>
+
         </div>
 
         <div class="detail-container">

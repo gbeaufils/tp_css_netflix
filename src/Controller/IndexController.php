@@ -65,7 +65,8 @@ class IndexController extends AbstractController
 
          return $this->render('index/catalogue.html.twig', [
              'controller_name' => 'IndexController',
-             'resultRecherche' => $listeFilms
+             'resultRecherche' => $listeFilms,
+             'favori'=>false
          ]);
      }
 
@@ -94,7 +95,8 @@ class IndexController extends AbstractController
 
         return $this->render('index/catalogue.html.twig', [
             'controller_name' => 'IndexController',
-            'resultRecherche' => $listeFilms
+            'resultRecherche' => $listeFilms,
+            'favori' => true
         ]);
     }
 
