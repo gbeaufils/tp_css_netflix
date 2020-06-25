@@ -1,0 +1,8 @@
+{{ form_start(form, {'action': path('recherche'), 'method': 'POST'}) }}
+<div class="input-group searchBar">
+    {{ form_widget(form) }}
+    <div class="input-group-append">
+        <button id="button-addon-search" class="btn btn-dark" type="submit"><img src="{{ asset('build/icon_search_white.png') }}"></button>
+    </div>
+</div>
+{{ form_end(form) }}
