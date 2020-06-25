@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="catalogue-container">
-        <div class="navbar"><span class="title">Cesiflix</span></div>
+        <div class="navbar"><span class="title"><a href="/accueil" >CesiFlix</a></span></div>
         <div class="search">
             {{ render(controller(
                 'App\\Controller\\RechercheController::searchBar'
@@ -12,19 +12,19 @@
         </div>
         {% if resultRecherche is defined and resultRecherche['response'] == "True" %}
             <div class="thumbnail-list">
-                {% for film in resultRecherche['films'] %}
-
-                    <div class="thumbnail">
-                        {% if film['Poster'] == "N/A"  %}
-                            <div class="thumbnail-na">
-                                <div>{{film["Title"]}}</div>
-                                <img class="" src="{{ asset("build/nopic.png") }}" alt="{{film["Title"]}}">
-                            </div>
-                        {% else %}
-                            <img class="" src="{{ film['Poster'] }}"  alt="{{ film["Title"]}}">
-                        {% endif %}
-                    </div>
-                {% endfor %}
+                    {% for film in resultRecherche['films'] %}
+                        <a class="thumbnail" href="{{ path('details', {idFilm: film["imdbID"] }) }}">
+                            {% if film['Poster'] == "N/A"%}
+                                <div class="thumbnail-na">
+                                    <div>{{film["Title"]}}</div>
+                                    <img class="" src="{{ asset("build/nopic.png") }}" alt="{{film["Title"]}}">
+                                </div>
+                            {% else %}
+                                <img class="star" src="{{ asset("build/starwhite.png") }}">
+                                <img class="" src="{{ film['Poster'] }}"  alt="{{ film["Title"]}}">
+                            {% endif %}
+                        </a>
+                    {% endfor %}
             </div>
             <div class="pagination">
                 {% for i in 1..resultRecherche['nbPages'] %}

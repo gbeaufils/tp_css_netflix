@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div class="catalogue-container">
+        <div class="navbar"><span class="title"><a href="/catalogue" > CesiFlix</a></span></div>
+        <div class="goToMovies back"><a href="/catalogue">Retour au catalogue !</a> </div>
+
+        <div class="detail-container">
+            <div class="thumbnail-detail">
+                <img class="" src="{{ detailsFilm['Poster'] }}"  alt="{{ detailsFilm["Title"]}}">
+            </div>
+            <div class="informations">
+                <h2><b>Titre : {{ detailsFilm['Title'] }}</b></h2>
+                <div>Synopsis : {{ detailsFilm['Plot'] }}</div>
+                <div>Durée : {{ detailsFilm['Runtime'] }}</div>
+                <div>Genre : {{ detailsFilm['Genre'] }}</div>
+                <div>Type : {{ detailsFilm['Type'] }}</div>
+                <div>Sortie: {{ detailsFilm['Released'] }}</div>
+                <div>Année de production : {{ detailsFilm['Year'] }}</div>
+                <div>Origine : {{ detailsFilm['Country'] }}</div>
+                <div>Note : {{ detailsFilm['imdbRating'] }}/10</div>
+            </div>
+        </div>
+        <div class="footer">Cesiflix est une propriété de Mehabli Rayane & Beaufils Geoffroy ©</div>
+
+    </div>
+{% endblock %}

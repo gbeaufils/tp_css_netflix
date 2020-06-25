@@ -62,4 +62,39 @@ class IndexController extends AbstractController
              'resultRecherche' => $listeFilms
          ]);
      }
+
+     /**
+      * @Route("/recherche/{titleSearch}/{currentPage}", name="recherche",defaults={"currentPage" = 1, "titleSearch" = ""})
+      * @param Request $request
+      */
+     public function recherche(Request $request, int $currentPage = 1, string $titleSearch = '')
+     {
+         $omdbApi = new Omdb();
+         if (isset($request->request->get('recherche')['RechercheData'])) {
+
+             $titre = $request->request->get('recherche')['RechercheData'];
+
+
+         } else {
+            $titre = $titleSearch;
+         }
+             $resultRecherche = $omdbApi->getByTitle($titre, $currentPage);
+
+        return $this->render('index/catalogue.html.twig', [
+                     'resultRecherche' => $resultRecherche
+             ]);
+     }
+
+     /**
+       * @Route("/details/{idFilm}", name="details",defaults={"idFilm" = ""})
+       * @param Request $request
+       */
+      public function details(string $idFilm)
+      {
+          $omdbApi = new Omdb();
+          $detailsFilm = $omdbApi->getById($idFilm);
+         return $this->render('index/detailFilm.html.twig', [
+                      'detailsFilm' => $detailsFilm
+              ]);
+      }
 }
