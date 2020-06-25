@@ -4,10 +4,15 @@
 
 {% block body %}
     <div class="catalogue-container">
-        <div class="navbar"><span class="title"><a href="/catalogue" > CesiFlix</a></span></div>
-        <div class="goToMovies back"><a href="/catalogue">Retour au catalogue !</a> </div>
+        <div class="navbar">
+            <span class="title"><a href="/accueil"> CesiFlix</a></span>
+            <a href="/catalogue"><img src="{{ asset("build/home.png") }}" alt="retourner à l'accueil"></a>
+        </div>
 
         <div class="detail-container">
+
+            <!--div class="goToMovies back"><a href="/catalogue">Retour au catalogue !</a> </div-->
+
             <div class="thumbnail-detail">
                 {% if detailsFilm['Poster'] == "N/A"%}
                     <img  src="{{ asset("build/nopic.png") }}" alt="{{detailsFilm["Title"]}}">
