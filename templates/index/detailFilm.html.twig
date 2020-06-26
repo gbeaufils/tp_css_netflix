@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Cesiflix - {{ detailsFilm['Title'] }}{% endblock %}
 
 {% block body %}
     <div class="catalogue-container">
@@ -14,9 +14,6 @@
         </div>
 
         <div class="detail-container">
-
-            <!--div class="goToMovies back"><a href="/catalogue">Retour au catalogue !</a> </div-->
-
             <div class="thumbnail-detail">
                 {% if detailsFilm['Poster'] == "N/A"%}
                     <img  src="{{ asset("build/nopic.png") }}" alt="{{detailsFilm["Title"]}}">
@@ -32,7 +29,6 @@
                          data-url="{{ path('editFavori', {'id': detailsFilm['imdbID']}) }}" href="javascript:void(0)">
                         {{ (detailsFilm['favori']) ? 'Retirer des favoris' : 'Ajouter aux favoris'}}
                     </a></h2>
-
                 <div>Synopsis : {{ detailsFilm['Plot'] }}</div>
                 <div>Durée : {{ detailsFilm['Runtime'] }}</div>
                 <div>Genre : {{ detailsFilm['Genre'] }}</div>
@@ -41,7 +37,6 @@
                 <div>Année de production : {{ detailsFilm['Year'] }}</div>
                 <div>Origine : {{ detailsFilm['Country'] }}</div>
                 <div>Note : {{ detailsFilm['imdbRating'] }}/10</div>
-
             </div>
         </div>
         <div class="footer">Cesiflix est une propriété de Mehabli Rayane & Beaufils Geoffroy ©</div>

@@ -14,37 +14,32 @@ import $ from 'jquery';
 
 $(function() {
 
+    $(document).ready(function () {
+        $('.favori_btn').click(function () {
+            var button = $(this);
+
+            $.ajax(button.data('url'), {
+                method: "POST",
+                success: function (response) {
+                    if (response.success === true) {
+                        button.toggleClass('btn-secondary').toggleClass('btn-warning');
+                        if (button.hasClass('btn-secondary')) {
+                            button.html('Ajouter aux favoris');
+                        } else {
+                            button.html('Retirer des favoris');
+                        }
 
 
-$(document).ready(function () {
-    $('.favori_btn').click(function () {
-        var button = $(this);
-
-        $.ajax(button.data('url'), {
-            method: "POST",
-            success: function (response) {
-                if (response.success === true) {
-                    button.toggleClass('btn-secondary').toggleClass('btn-warning');
-                    if (button.hasClass('btn-secondary')) {
-                        button.html('Ajouter aux favoris');
                     } else {
-                        button.html('Retirer des favoris');
+                        alert(response.message);
                     }
+                },
+                error: function () {
+                    alert('An error occured. Please try again');
+                },
 
-
-                } else {
-                    alert(response.message);
-                }
-            },
-            error: function () {
-                alert('An error occured. Please try again');
-            },
-
-        });
-    })
-
-
-
-});
+            });
+        })
+    });
 
 });

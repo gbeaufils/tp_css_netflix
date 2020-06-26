@@ -24,10 +24,7 @@ class RechercheController extends AbstractController
     {
         $omdbApi = new Omdb();
         if (isset($request->request->get('recherche')['RechercheData'])) {
-
             $titre = $request->request->get('recherche')['RechercheData'];
-
-
         } else {
            $titre = $titleSearch;
         }

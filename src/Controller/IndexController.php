@@ -56,6 +56,7 @@ class IndexController extends AbstractController
          $listeFilms['nbPages'] = 2;
          $listeFilms['currentPage'] = $currentPage;
 
+         //boucle sur le tableau et ajout dans $listeFilms
          foreach ($fakeDataPage as $idFilm)
          {
              $dataOmdbApi = $omdbApi->getById($idFilm);
