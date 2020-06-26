@@ -34,7 +34,8 @@ class RechercheController extends AbstractController
             $resultRecherche = $omdbApi->getByTitle($titre, $currentPage);
 
        return $this->render('index/catalogue.html.twig', [
-                    'resultRecherche' => $resultRecherche
+                    'resultRecherche' => $resultRecherche,
+                    'favori' => false
             ]);
     }
 
